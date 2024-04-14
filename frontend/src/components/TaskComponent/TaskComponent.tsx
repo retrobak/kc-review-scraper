@@ -288,13 +288,13 @@ const TaskComponent = ({
         <Link href={`/output`} passHref>
               <EuiLink>View All Tasks</EuiLink>
             </Link>
-          {filters.length ? (
+          {/* {filters.length ? (
             <FilterComponent
               filter_data={filter_data}
               setFilter={setFilter}
               filters={filters}
             />
-          ):null}
+          ):null} */}
 
           {sorts.length ? (
             <SortComponent sort={sort} setSort={setSort} sorts={sorts} />

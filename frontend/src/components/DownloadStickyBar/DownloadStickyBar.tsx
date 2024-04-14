@@ -39,16 +39,16 @@ const tabs = [
     name: 'CSV',
     content: <></>, // Assuming no content is needed for the sorting tabs
   },
-  {
-    id: 'json',
-    name: 'JSON',
-    content: <></>, // Assuming no content is needed for the sorting tabs
-  },
-  {
-    id: 'excel',
-    name: 'Excel',
-    content: <></>, // Assuming no content is needed for the sorting tabs
-  },
+  // {
+  //   id: 'json',
+  //   name: 'JSON',
+  //   content: <></>, // Assuming no content is needed for the sorting tabs
+  // },
+  // {
+  //   id: 'excel',
+  //   name: 'Excel',
+  //   content: <></>, // Assuming no content is needed for the sorting tabs
+  // },
 ]
 
 const DownloadForm = ({ onSubmit }) => {
@@ -159,11 +159,11 @@ const DownloadStickyBar = ({ onDownload, showPagination }) => {
       <EuiButton className="mr-2" onClick={directDownload} iconType="download">
         {fmt}
       </EuiButton>
-      <EuiIcon
+      {/* <EuiIcon
         style={{ border: 'none', background: 'none', cursor: 'pointer' }}
         type="arrowDown"
         onClick={showModal}
-      />
+      /> */}
     </div>
   )
 }

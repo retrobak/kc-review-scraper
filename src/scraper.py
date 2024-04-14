@@ -13,6 +13,7 @@ from time import sleep, time
 from botasaurus.utils import retry_if_is_error
 from selenium.common.exceptions import  StaleElementReferenceException
 from botasaurus.create_stealth_driver import create_stealth_driver
+from datetime import datetime
 
 def process_reviews(reviews):
     processed_reviews = []
@@ -26,6 +27,9 @@ def process_reviews(reviews):
         user_reviews = review.get("user_reviews")
         number_of_reviews_by_reviewer = user_reviews
         # int(user_reviews.replace(",", "").replace(".", "")) if user_reviews else 0
+        
+        original_datetime = datetime.strptime(review.get("text_date"), "%Y-%m-%d %H:%M:%S.%f")
+        formatted_datetime = original_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
         lk = review.get("likes")
         processed_review = {
@@ -33,7 +37,7 @@ def process_reviews(reviews):
             "rating": int(review.get("rating")),
             "review_text": review.get("text"),
             "published_at": review.get("relative_date"),
-            "published_at_date": review.get("text_date"),
+            "published_at_date": formatted_datetime,
             "response_from_owner_text": review.get("response_text"),
             "response_from_owner_ago": review.get("response_relative_date"),
             "response_from_owner_date": review.get("response_text_date"),

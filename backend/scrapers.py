@@ -125,33 +125,33 @@ def split_task_by_query(data):
 def get_task_name(data):
     return data["query"]
 
-featured_reviews_view = View(
-    "Featured Reviews",
-    fields=[
-        Field("place_id"),
-        Field("name", output_key="place_name"),
-        ExpandListField(
-            "featured_reviews",
-            fields=[
-                Field("review_id_hash"),
-                Field("rating"),
-                Field("review_text"),
-                Field("published_at"),
-                Field("published_at_date"),
-                Field("response_from_owner_text"),
-                Field("response_from_owner_ago"),
-                Field("response_from_owner_date"),
-                Field("review_likes_count"),
-                Field("total_number_of_reviews_by_reviewer"),
-                Field("total_number_of_photos_by_reviewer"),
-                Field("is_local_guide"),
-                Field("review_translated_text"),
-                Field("response_from_owner_translated_text"),
-                Field("review_photos"),
-            ],
-        ),
-    ],
-)
+# featured_reviews_view = View(
+#     "Featured Reviews",
+#     fields=[
+#         Field("place_id"),
+#         Field("name", output_key="place_name"),
+#         ExpandListField(
+#             "featured_reviews",
+#             fields=[
+#                 Field("review_id_hash"),
+#                 Field("rating"),
+#                 Field("review_text"),
+#                 Field("published_at"),
+#                 Field("published_at_date"),
+#                 Field("response_from_owner_text"),
+#                 Field("response_from_owner_ago"),
+#                 Field("response_from_owner_date"),
+#                 Field("review_likes_count"),
+#                 Field("total_number_of_reviews_by_reviewer"),
+#                 Field("total_number_of_photos_by_reviewer"),
+#                 Field("is_local_guide"),
+#                 Field("review_translated_text"),
+#                 Field("response_from_owner_translated_text"),
+#                 Field("review_photos"),
+#             ],
+#         ),
+#     ],
+# )
 
 detailed_reviews_view = View(
     "Detailed Reviews",
@@ -161,20 +161,20 @@ detailed_reviews_view = View(
         ExpandListField(
             "detailed_reviews",
             fields=[
-                Field("review_id_hash"),
+                # Field("review_id_hash"),
                 Field("rating"),
                 Field("review_text"),
                 Field("published_at"),
                 Field("published_at_date"),
-                Field("response_from_owner_text"),
-                Field("response_from_owner_ago"),
-                Field("response_from_owner_date"),
+                # Field("response_from_owner_text"),
+                # Field("response_from_owner_ago"),
+                # Field("response_from_owner_date"),
                 Field("review_likes_count"),
-                Field("total_number_of_reviews_by_reviewer"),
-                Field("total_number_of_photos_by_reviewer"),
-                Field("is_local_guide"),
+                # Field("total_number_of_reviews_by_reviewer"),
+                # Field("total_number_of_photos_by_reviewer"),
+                # Field("is_local_guide"),
                 Field("review_translated_text"),
-                Field("response_from_owner_translated_text"),
+                # Field("response_from_owner_translated_text"),
             ],
         ),
     ],
@@ -233,37 +233,37 @@ overview_view = View(
     fields=[
         Field("place_id"),
         Field("name"),
-        Field("description"),
-        Field("is_spending_on_ads"),
+        # Field("description"),
+        # Field("is_spending_on_ads"),
         Field("reviews"),
-        Field("competitors", map=lambda value, record: competitors_to_string(value)),
-        Field("website"),
-        Field("can_claim"),
+        # Field("competitors", map=lambda value, record: competitors_to_string(value)),
+        # Field("website"),
+        # Field("can_claim"),
     ]
-    + social_fields
+    # + social_fields
     + [
-        ExpandDictField(
-            "owner",
-            fields=[
-                Field(
-                    "name",
-                    output_key="owner_name",
-                ),
-                Field(
-                    "link",
-                    output_key="owner_profile_link",
-                ),
-            ],
-        ),
-        Field("featured_image"),
-        Field("main_category"),
-        Field("categories", map=join_with_commas),
+        # ExpandDictField(
+        #     "owner",
+        #     fields=[
+        #         Field(
+        #             "name",
+        #             output_key="owner_name",
+        #         ),
+        #         Field(
+        #             "link",
+        #             output_key="owner_profile_link",
+        #         ),
+        #     ],
+        # ),
+        # Field("featured_image"),
+        # Field("main_category"),
+        # Field("categories", map=join_with_commas),
         Field("rating"),
-        Field("workday_timing"),
-        Field("closed_on", map=join_closed_on),
-        Field("phone"),
-        Field("address"),
-        Field("review_keywords", map=join_review_keywords),
+        # Field("workday_timing"),
+        # Field("closed_on", map=join_closed_on),
+        # Field("phone"),
+        # Field("address"),
+        # Field("review_keywords", map=join_review_keywords),
         Field("link"),
     ],
 )
@@ -292,25 +292,25 @@ Server.add_scraper(
     filters=[
         MinNumberInput("reviews", label="Min Reviews"),
         MaxNumberInput("reviews", label="Max Reviews"),
-        IsTruthyCheckbox("website"),
-        IsTruthyCheckbox("phone"),
-        IsTrueCheckbox("is_spending_on_ads"),
-        IsTrueCheckbox("can_claim"),
-        MultiSelectDropdown(
-            "category_in",
-            options=category_options,
-        ),
+        # IsTruthyCheckbox("website"),
+        # IsTruthyCheckbox("phone"),
+        # IsTrueCheckbox("is_spending_on_ads"),
+        # IsTrueCheckbox("can_claim"),
+        # MultiSelectDropdown(
+        #     "category_in",
+        #     options=category_options,
+        # ),
         MinNumberInput("rating", label="Min Rating"),
     ],
     sorts=[
-        best_customers,
+        # best_customers,
         NumericDescendingSort("reviews"),
         NumericAscendingSort("reviews"),
         NumericAscendingSort("name"),
     ],
     views=[
         overview_view,
-        featured_reviews_view,
+        # featured_reviews_view,
         detailed_reviews_view,
     ],
 )
@@ -318,12 +318,12 @@ Server.add_scraper(
 Server.set_rate_limit(request=1)
 Server.enable_cache()
 Server.configure(
-     title="Google Maps Scraper",
-    header_title="Made with Botasaurus",
-    description="Find thousands of new customers personal phone, email and grow your business exponentially.",
+     title="KC Google Reviews Scraper",
+    header_title="KC Google Reviews Scraper",
+    description="",
     right_header={
-        "text": "Love It? Star It! ★",
-        "link": "https://github.com/omkarcloud/botasaurus",
+        "text": "",
+        "link": "s",
     },
 )
 # python -m backend.scrapers

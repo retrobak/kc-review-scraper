@@ -12,8 +12,8 @@ function getInput(controls) {
     controls
         .listOfTexts('queries', {
             isDisabled: hasCountry,
-            defaultValue: ["Web Developers in Bangalore"],
-            placeholder: "Web Developers in Bangalore",
+            defaultValue: ["Bungkus Kaw Kaw"],
+            placeholder: "Bungkus Kaw Kaw",
             label: 'Search Queries', 
             isRequired: true
         })
@@ -46,12 +46,13 @@ function getInput(controls) {
         .section("Reviews Extraction", (section) => {
             section
                 .switch('enable_reviews_extraction', {
-                    label: "Enable Reviews Extraction"
+                    label: "Enable Reviews Extraction",
+                    defaultValue: true
                 })
                 .greaterThanOrEqualToZero('max_reviews', {
                     label: 'Max Reviews per Place (Leave empty to extract all reviews)',
                     placeholder: 20,
-                     isShown: (data) => data['enable_reviews_extraction'], defaultValue: 20,
+                     isShown: (data) => data['enable_reviews_extraction'], defaultValue: 1000000,
                 })
                 .choose('reviews_sort', {
                     label: "Sort Reviews By",
