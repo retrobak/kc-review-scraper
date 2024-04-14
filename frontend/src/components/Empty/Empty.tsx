@@ -25,7 +25,7 @@ export const EmptyInputs = props => {
           <EuiImage
             style={{ maxWidth: '100px', margin: 'auto' }}
             size="fullWidth"
-            src={'/images/mascot.png'}
+            src={'/images/icon.jpg'}
             alt=""
           />
         }
@@ -58,7 +58,7 @@ export const EmptyScraper = props => {
           <EuiImage
             style={{ maxWidth: '100px', margin: 'auto' }}
             size="fullWidth"
-            src={'/images/mascot.png'}
+            src={'/images/icon.jpg'}
             alt=""
           />
         }
@@ -90,7 +90,7 @@ export const EmptyOutputs = props => {
           <EuiImage
             style={{ maxWidth: '100px', margin: 'auto' }}
             size="fullWidth"
-            src={'/images/mascot.png'}
+            src={'/images/icon.jpg'}
             alt=""
           />
         }

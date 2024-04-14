@@ -284,7 +284,7 @@ const TaskComponent = ({
     <>
       <OutputTabsContainer>
         <div className='space-y-6 '>
-        <PromotionWrapper />
+        {/* <PromotionWrapper /> */}
         <Link href={`/output`} passHref>
               <EuiLink>View All Tasks</EuiLink>
             </Link>

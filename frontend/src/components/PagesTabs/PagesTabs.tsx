@@ -13,13 +13,13 @@ export const TabsId = {
 const tabs = [
   { route: '/', id: TabsId.INPUT, name: 'Input', content: <></> },
   { route: '/output', id: TabsId.OUTPUT, name: 'Output', content: <></> },
-  { route: '/about', id: TabsId.ABOUT, name: 'About', content: <></> },
-  {
-    route: '/api-integration',
-    id: TabsId.API_INTEGRATION,
-    name: 'API Integration',
-    content: <></>,
-  },
+  // { route: '/about', id: TabsId.ABOUT, name: 'About', content: <></> },
+  // {
+  //   route: '/api-integration',
+  //   id: TabsId.API_INTEGRATION,
+  //   name: 'API Integration',
+  //   content: <></>,
+  // },
 ]
 
 const PagesTabs = ({ initialSelectedTab }) => {

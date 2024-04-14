@@ -18,7 +18,7 @@ import { imageLoader } from '../../lib/loader'
 import { headerStyles } from './header.styles'
 import { useState } from 'react'
 // @ts-ignore
-import Logo from '../../../public/images/logo.svg'
+import Logo from '../../../public/images/icon.jpg'
 import Links from '../../utils/data/links'
 
 function HeaderLogo({ header_title, white = false }) {
